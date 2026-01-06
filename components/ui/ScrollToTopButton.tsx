@@ -6,7 +6,6 @@ import React, { useState, useEffect } from "react";
 export const ScrollToTop = () => {
   const [isVisible, setIsVisible] = useState(false);
 
-  // Toggle visibility based on scroll depth
   useEffect(() => {
     const toggleVisibility = () => {
       if (window.scrollY > 400) {
@@ -31,7 +30,7 @@ export const ScrollToTop = () => {
     <button
       onClick={scrollToTop}
       className={cn(
-        "fixed right-6 lg:right-10 bottom-10 p-0 w-12 h-12 z-[90] transition-all duration-500 flex items-center justify-center cursor-pointer",
+        "fixed right-6 lg:right-10 bottom-8 p-0 w-9 h-9 z-[90] transition-all duration-500 flex items-center justify-center cursor-pointer",
         "bg-transparent border border-hazard text-hazard hover:bg-hazard hover:text-dark",
         isVisible
           ? "translate-y-0 opacity-100 visible"
@@ -40,14 +39,14 @@ export const ScrollToTop = () => {
       aria-label="Back to top"
     >
       <div className="flex flex-col items-center justify-center h-full relative group w-full">
-        {/* Decorative corner bracket */}
-        <div className="absolute -top-[1px] -left-[1px] w-2 h-2 border-t border-l border-hazard group-hover:border-dark" />
+        {/* Decorative corner bracket - adjusted for smaller scale */}
+        <div className="absolute -top-[1px] -left-[1px] w-1.5 h-1.5 border-t border-l border-hazard group-hover:border-dark" />
 
-        {/* Up Arrow Icon */}
-        <span className="w-2.5 h-2.5 border-t-2 border-l-2 border-current rotate-45 mb-[2px]" />
+        {/* Up Arrow Icon - slightly smaller (w-2 h-2) */}
+        <span className="w-2 h-2 border-t-2 border-l-2 border-current rotate-45 mb-[1px]" />
 
-        {/* Label */}
-        <span className="font-mono text-[0.6rem] font-bold tracking-tighter">
+        {/* Label - reduced tracking slightly for clarity at small size */}
+        <span className="font-mono text-[0.55rem] font-bold tracking-tight">
           TOP
         </span>
 
