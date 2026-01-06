@@ -63,7 +63,7 @@ Copyright (c) 2026 **ABDUS SATTER**. All rights reserved.
 
 ```bash
 # 01. CLONE_REPOSITORY
-git clone [https://github.com/asatter833/portfolio-v2.git](https://github.com/asatter833/portfolio-v2.git)
+git clone [[https://github.com/asatter833/portfolio-v2.git](https://github.com/asatter833/portfolio-v2.git)](https://github.com/asatter833/v2.abdussatter.dev.git)
 
 # 02. INSTALL_DEPENDENCIES
 npm install
