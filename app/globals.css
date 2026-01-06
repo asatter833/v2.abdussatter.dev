@@ -10,7 +10,8 @@
 
   /* --- Fonts --- */
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
-  --font-mono: "Roboto Mono", ui-monospace, SFMono-Regular, monospace;
+  --font-mono: "JetBrains Mono", "JetBrains Mono Variable", ui-monospace,
+    "Cascadia Code", "Source Code Pro", Menlo, Monaco, Consolas, monospace;
 
   /* --- Animations & Keyframes --- */
   @keyframes strokeDashMove {

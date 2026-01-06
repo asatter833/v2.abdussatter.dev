@@ -1,7 +1,4 @@
-interface SectionHeaderProps {
-  id: string;
-  title: string;
-}
+import { SectionHeaderProps } from "@/types";
 
 export const SectionHeader = ({ id, title }: SectionHeaderProps) => (
   <div className="mt-16 md:mt-24 mb-8 md:mb-12">

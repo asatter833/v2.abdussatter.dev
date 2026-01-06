@@ -8,7 +8,6 @@ import { SectionHeader } from "@/components/ui/SectionHeader";
 import { ProjectCard } from "@/components/ui/cards/ProjectsCard";
 import { SkillTier } from "@/components/ui/cards/SkillTier";
 import { ContactCard } from "@/components/ui/cards/ContactCard";
-import { Footer } from "@/components/sections/Footer";
 import { AwardCard } from "@/components/ui/cards/AwardCard";
 import { SectionGrid } from "@/components/ui/SectionGrid";
 
@@ -96,7 +95,6 @@ export default function Page() {
             />
           </SectionGrid>
         </section>
-        <Footer />
       </main>
     </div>
   );

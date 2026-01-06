@@ -1,24 +1,13 @@
 "use client";
 
+import { DottedGlowBackgroundProps } from "@/types";
 import React, { useEffect, useRef } from "react";
-
-type DottedGlowBackgroundProps = {
-  className?: string;
-  gap?: number;
-  radius?: number;
-  color?: string;
-  glowColor?: string;
-  opacity?: number;
-  speedMin?: number;
-  speedMax?: number;
-  speedScale?: number;
-};
 
 export default function DottedGlowBackground({
   className,
-  gap = 20, // Adjusted to match your design
+  gap = 20,
   radius = 1.5,
-  color = "rgba(250, 204, 21, 0.1)", // Using your hazard color
+  color = "rgba(250, 204, 21, 0.1)",
   glowColor = "rgba(250, 204, 21, 0.4)",
   opacity = 0.15,
   speedMin = 0.5,

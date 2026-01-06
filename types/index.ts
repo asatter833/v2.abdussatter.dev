@@ -10,13 +10,6 @@ export type DottedGlowBackgroundProps = {
   speedScale?: number;
 };
 
-export interface Artifact {
-  id: string;
-  styleName: string;
-  html: string;
-  status: "streaming" | "complete" | "error";
-}
-
 export interface ResumeData {
   name: string;
   version: string;
@@ -40,8 +33,12 @@ export interface ResumeData {
   github: string;
 }
 
-export interface ProjectProps {
+export interface SectionHeaderProps {
+  id: string;
   title: string;
-  desc: string;
-  tags: string[];
+}
+
+export interface SectionGridProps {
+  children: React.ReactNode;
+  className?: string; // Add this line to fix the error
 }

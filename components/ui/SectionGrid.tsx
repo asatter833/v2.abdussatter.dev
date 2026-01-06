@@ -1,15 +1,5 @@
-import { twMerge } from "tailwind-merge"; // Recommended for merging Tailwind classes
-import { clsx, type ClassValue } from "clsx";
-
-// Utility to merge classes safely
-function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs));
-}
-
-interface SectionGridProps {
-  children: React.ReactNode;
-  className?: string; // Add this line to fix the error
-}
+import { cn } from "@/lib/utils";
+import { SectionGridProps } from "@/types";
 
 export const SectionGrid = ({ children, className }: SectionGridProps) => (
   <div

@@ -1,9 +1,4 @@
-interface ProjectProps {
-  id: string;
-  name: string;
-  desc: string;
-  tech: string[];
-}
+import { ProjectProps } from "@/types/CardTypes";
 
 export const ProjectCard = ({ id, name, desc, tech }: ProjectProps) => (
   <div className="bg-dark p-8 md:p-10 transition-all duration-300 flex flex-col hover:bg-hazard/[0.03] hover:shadow-[inset_0_0_20px_rgba(250,204,21,0.05)] h-full">

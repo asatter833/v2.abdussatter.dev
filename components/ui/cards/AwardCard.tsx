@@ -1,9 +1,4 @@
-interface AwardProps {
-  title: string;
-  org: string;
-  date: string;
-  result: string;
-}
+import { AwardProps } from "@/types/CardTypes";
 
 export const AwardCard = ({ title, org, date, result }: AwardProps) => (
   <div className="bg-dark p-8 md:p-10 transition-all duration-300 flex flex-col hover:bg-hazard/[0.03] hover:shadow-[inset_0_0_20px_rgba(250,204,21,0.05)]">

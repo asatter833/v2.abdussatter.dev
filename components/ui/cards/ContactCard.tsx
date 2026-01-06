@@ -1,10 +1,4 @@
-interface ContactCardProps {
-  label: string;
-  status: string;
-  title: string;
-  value: string;
-  href: string;
-}
+import { ContactCardProps } from "@/types/CardTypes";
 
 export const ContactCard = ({
   label,

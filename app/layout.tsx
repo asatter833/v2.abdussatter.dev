@@ -1,19 +1,20 @@
 import type { Metadata } from "next";
-import { Inter, Roboto_Mono } from "next/font/google";
+import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
+import { Footer } from "@/components/sections/Footer";
+import { ScrollToTop } from "@/components/ui/ScrollToTopButton";
 
 // Configure Inter for your primary sans-serif font
 const inter = Inter({
   subsets: ["latin"],
-  variable: "--font-sans", // This maps to our Tailwind --font-sans
+  variable: "--font-sans",
   display: "swap",
 });
 
 // Configure Roboto Mono for your terminal/code font
-const robotoMono = Roboto_Mono({
+const jetbrains = JetBrains_Mono({
   subsets: ["latin"],
-  variable: "--font-mono", // This maps to our Tailwind --font-mono
-  display: "swap",
+  variable: "--font-mono", // This links to your Tailwind 'font-mono'
 });
 
 export const metadata: Metadata = {
@@ -27,9 +28,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${inter.variable} ${robotoMono.variable}`}>
+    <html lang="en" className={`${inter.variable} ${jetbrains.variable}`}>
       <body className="antialiased">
         <main id="root">{children}</main>
+        <ScrollToTop />
+        <Footer />
       </body>
     </html>
   );

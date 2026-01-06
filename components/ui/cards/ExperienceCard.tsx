@@ -1,7 +1,7 @@
+import { ExperienceCardProps } from "@/types/CardTypes";
 import React from "react";
-// Optional helper
 
-export const ExperienceCard = ({ exp }: { exp: any }) => (
+export const ExperienceCard = ({ exp }: { exp: ExperienceCardProps }) => (
   <div className="bg-dark p-8 hover:bg-hazard/[0.02] transition-colors h-full">
     <div className="flex justify-between font-mono text-[0.7rem] text-grey mb-4">
       <span className="text-white/60 uppercase">{exp.company}</span>

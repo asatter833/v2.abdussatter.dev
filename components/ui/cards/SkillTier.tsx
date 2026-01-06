@@ -1,7 +1,4 @@
-interface SkillTierProps {
-  tier: string;
-  items: string[];
-}
+import { SkillTierProps } from "@/types/CardTypes";
 
 export const SkillTier = ({ tier, items }: SkillTierProps) => (
   <div className="flex border-b border-dim pb-6 md:pb-8 last:border-0 flex-col sm:flex-row">
