@@ -1,9 +1,5 @@
 # ⚠️ SYSTEM_MANIFEST: [ABDUS-SATTER-V2]
 
-<p align="center">
-  <img src="https://raw.githubusercontent.com/asatter833/portfolio-v2/main/public/banner.png" alt="Portfolio Banner" width="100%">
-</p>
-
 ## 📂 STATUS: [OPERATIONAL]
 > **BUILD_VERSION:** `2.5.0`  
 > **ENVIRONMENT:** `Production_Node`  
