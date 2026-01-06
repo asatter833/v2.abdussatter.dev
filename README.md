@@ -19,8 +19,7 @@ This repository contains the source code for a high-performance, industrial-grad
 | **Framework** | Next.js 15 (App Router) |
 | **Styling** | Tailwind CSS 4.0 (Zero-runtime Engine) |
 | **Type Safety** | TypeScript (Strict) |
-| **Animations** | Framer Motion + Canvas API |
-| **Intelligence** | Gemini AI (Nano-Banana Engine) |
+| **Animations** | Native CSS 4 Keyframes + Canvas API |
 
 ---
 
