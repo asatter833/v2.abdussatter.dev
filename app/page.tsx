@@ -1,93 +1,103 @@
-import DottedGlowBackground from "@/components/DottedGlowBackground";
-import { SectionHeader } from "@/components/SectionHeader";
-// import ChatInterface from '@/components/ChatInterface';
-import data from "@/data/personal.data.json";
+"use client";
+import data from "@/data/personal.data.json"; // Move your data to a separate file
+import { Header } from "@/components/sections/Header";
+import { Hero } from "@/components/sections/Hero";
+import { ExperienceCard } from "@/components/ui/cards/ExperienceCard";
+import DottedGlowBackground from "@/components/ui/DottedGlowBackground";
+import { SectionHeader } from "@/components/ui/SectionHeader";
+import { ProjectCard } from "@/components/ui/cards/ProjectsCard";
+import { SkillTier } from "@/components/ui/cards/SkillTier";
+import { ContactCard } from "@/components/ui/cards/ContactCard";
+import { Footer } from "@/components/sections/Footer";
+import { AwardCard } from "@/components/ui/cards/AwardCard";
+import { SectionGrid } from "@/components/ui/SectionGrid";
 
-export default function Home() {
+export default function Page() {
   return (
-    <div className="relative min-h-screen bg-dark text-white overflow-x-hidden">
-      <DottedGlowBackground />
+    <div className="relative min-h-screen">
+      <DottedGlowBackground opacity={0.15} />
+      <div className="vignette fixed inset-0 pointer-events-none z-[1]" />
 
-      {/* Vignette Overlay */}
-      <div className="fixed inset-0 pointer-events-none z-[1] bg-[radial-gradient(circle,transparent_40%,rgba(0,0,0,0.8)_100%)]" />
+      <Header name={data.name} version={data.version} />
 
-      <main className="relative z-[2] max-w-[1400px] mx-auto px-6 pt-16">
-        {/* HERO */}
-        <section className="min-h-[70vh] flex items-center">
-          <div className="w-full">
-            <div className="font-mono text-xs text-grey mb-6 flex items-center gap-3">
-              <span className="w-10 h-px bg-grey"></span>
-              OPERATIONAL STATUS:{" "}
-              <span className="text-hazard animate-pulse">ACTIVE</span>
-            </div>
-            <h1 className="text-[12vw] font-black leading-[0.8] -tracking-[4px] uppercase">
-              FRONTEND
-            </h1>
-            <h1 className="text-[12vw] font-black leading-[0.8] -tracking-[4px] uppercase text-transparent stroke-hazard stroke-1">
-              ENGINEER
-            </h1>
-            <p className="mt-12 font-mono text-grey max-w-xl leading-relaxed">
-              {data.summary}
-            </p>
-          </div>
-        </section>
+      <main className="relative z-[2] max-w-[1400px] mx-auto px-6 md:px-10 pt-32 lg:pt-16">
+        <Hero summary={data.summary} />
 
-        {/* EXPERIENCE */}
-        <section id="infrastructure">
-          <SectionHeader id="01" title="INFRASTRUCTURE" />
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-[1px] bg-white/10 border border-white/10">
+        {/* Experience */}
+        <section id="infrastructure" className="scroll-mt-24">
+          <SectionHeader id="01" title="Infrastructure" />
+          <SectionGrid>
             {data.experience.map((exp, i) => (
-              <div
-                key={i}
-                className="bg-dark p-10 hover:bg-hazard/5 transition-colors"
-              >
-                <div className="flex justify-between font-mono text-xs text-grey mb-4">
-                  <span>{exp.company}</span>
-                  <span>{exp.period}</span>
-                </div>
-                <h3 className="text-xl font-bold mb-6">{exp.role}</h3>
-                <ul className="space-y-3 text-grey text-sm">
-                  {exp.highlights.map((h, j) => (
-                    <li key={j} className="flex gap-3">
-                      <span className="text-hazard font-mono">⌞</span>
-                      {h}
-                    </li>
-                  ))}
-                </ul>
-              </div>
+              <ExperienceCard key={i} exp={exp} />
             ))}
-          </div>
+          </SectionGrid>
         </section>
 
-        {/* PROJECTS */}
-        <section id="components">
-          <SectionHeader id="02" title="CORE COMPONENTS" />
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-[1px] bg-white/10 border border-white/10">
+        {/* Projects */}
+        <section id="core components" className="scroll-mt-32">
+          <SectionHeader id="02" title="Core Components" />
+          <SectionGrid>
             {data.projects.map((proj) => (
-              <div
-                key={proj.id}
-                className="bg-dark p-10 hover:bg-hazard/5 transition-all"
-              >
-                <h3 className="text-xl font-bold mb-2">{proj.name}</h3>
-                <p className="text-grey text-sm mb-6">{proj.desc}</p>
-                <div className="flex flex-wrap gap-2">
-                  {proj.tech.map((t) => (
-                    <span
-                      key={t}
-                      className="font-mono text-[10px] px-2 py-1 bg-white/5 border border-white/10 text-white/60"
-                    >
-                      {t}
-                    </span>
-                  ))}
-                </div>
-              </div>
+              <ProjectCard key={proj.id} {...proj} />
+            ))}
+          </SectionGrid>
+        </section>
+
+        {/* Skills */}
+        <section id="system-assets" className="scroll-mt-32">
+          <SectionHeader id="03" title="System Assets" />
+          <div className="flex flex-col gap-6 md:gap-8">
+            {Object.entries(data.skills).map(([tier, items]) => (
+              <SkillTier key={tier} tier={tier} items={items} />
             ))}
           </div>
         </section>
-      </main>
 
-      {/* AI TERMINAL */}
-      {/* <ChatInterface resumeData={data} /> */}
+        {/* award */}
+        <section id="telemetry" className="content-module scroll-mt-20">
+          <SectionHeader id="04" title="TELEMETRY" />
+          <div className="grid grid-cols-1 gap-[1px] bg-dim border border-dim">
+            {data.awards.map((award, i) => (
+              <AwardCard
+                key={i}
+                title={award.title}
+                org={award.org}
+                date={award.date}
+                result={award.result}
+              />
+            ))}
+          </div>
+        </section>
+
+        {/* Contact */}
+        <section id="contact">
+          <SectionHeader id="05" title="Establish Connection" />
+          <SectionGrid className="md:grid-cols-3">
+            <ContactCard
+              label="COMMUNICATION"
+              status="SECURE"
+              title="EMAIL"
+              value={data.email}
+              href={`mailto:${data.email}`}
+            />
+            <ContactCard
+              label="NETWORK"
+              status="CONNECTED"
+              title="LINKEDIN"
+              value="Registry_Node_Auth"
+              href={data.linkedin}
+            />
+            <ContactCard
+              label="SOURCE"
+              status="OPEN"
+              title="GITHUB"
+              value="Binary_Repository"
+              href={data.github}
+            />
+          </SectionGrid>
+        </section>
+        <Footer />
+      </main>
     </div>
   );
 }

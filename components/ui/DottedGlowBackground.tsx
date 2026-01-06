@@ -1,60 +1,67 @@
 "use client";
 
-import { DottedGlowBackgroundProps } from "@/lib/types";
-/**
- * @license
- * SPDX-License-Identifier: Apache-2.0
- */
-
 import React, { useEffect, useRef } from "react";
+
+type DottedGlowBackgroundProps = {
+  className?: string;
+  gap?: number;
+  radius?: number;
+  color?: string;
+  glowColor?: string;
+  opacity?: number;
+  speedMin?: number;
+  speedMax?: number;
+  speedScale?: number;
+};
 
 export default function DottedGlowBackground({
   className,
-  gap = 20,
+  gap = 20, // Adjusted to match your design
   radius = 1.5,
-  color = "rgba(255, 255, 255, 0.1)",
+  color = "rgba(250, 204, 21, 0.1)", // Using your hazard color
   glowColor = "rgba(250, 204, 21, 0.4)",
   opacity = 0.15,
   speedMin = 0.5,
   speedMax = 1.5,
-  speedScale = 0.8,
+  speedScale = 0.5,
 }: DottedGlowBackgroundProps) {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const containerRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    const canvas = canvasRef.current;
+    const el = canvasRef.current;
     const container = containerRef.current;
-    if (!canvas || !container) return;
+    if (!el || !container) return;
 
-    const ctx = canvas.getContext("2d");
+    const ctx = el.getContext("2d", { alpha: true });
     if (!ctx) return;
 
     let raf = 0;
     let stopped = false;
-    let dots: { x: number; y: number; phase: number; speed: number }[] = [];
+    const dpr =
+      typeof window !== "undefined"
+        ? Math.max(1, window.devicePixelRatio || 1)
+        : 1;
 
-    // 1. Handle Retina Display Scaling
     const resize = () => {
-      const dpr = window.devicePixelRatio || 1;
       const { width, height } = container.getBoundingClientRect();
-
-      canvas.width = width * dpr;
-      canvas.height = height * dpr;
-      canvas.style.width = `${width}px`;
-      canvas.style.height = `${height}px`;
-
+      el.width = Math.max(1, Math.floor(width * dpr));
+      el.height = Math.max(1, Math.floor(height * dpr));
+      el.style.width = `${width}px`;
+      el.style.height = `${height}px`;
       ctx.scale(dpr, dpr);
-      regenDots(); // Re-calculate grid positions on resize
     };
 
-    // 2. Generate Dot Grid
+    const ro = new ResizeObserver(resize);
+    ro.observe(container);
+
+    let dots: { x: number; y: number; phase: number; speed: number }[] = [];
+
     const regenDots = () => {
       dots = [];
       const { width, height } = container.getBoundingClientRect();
       const cols = Math.ceil(width / gap) + 2;
       const rows = Math.ceil(height / gap) + 2;
-
       for (let i = -1; i < cols; i++) {
         for (let j = -1; j < rows; j++) {
           const x = i * gap + (j % 2 === 0 ? 0 : gap * 0.5);
@@ -69,18 +76,18 @@ export default function DottedGlowBackground({
       }
     };
 
-    // 3. Animation Loop
+    resize();
+    regenDots();
+    window.addEventListener("resize", regenDots);
+
     const draw = (now: number) => {
       if (stopped) return;
       const { width, height } = container.getBoundingClientRect();
-
       ctx.clearRect(0, 0, width, height);
-      ctx.globalAlpha = opacity;
 
       const time = (now / 1000) * speedScale;
 
       dots.forEach((d) => {
-        // Calculate breathing/glowing effect
         const mod = (time * d.speed + d.phase) % 2;
         const lin = mod < 1 ? mod : 2 - mod;
         const intensity = 0.1 + 0.9 * (lin * lin);
@@ -89,33 +96,27 @@ export default function DottedGlowBackground({
         ctx.arc(d.x, d.y, radius, 0, Math.PI * 2);
 
         if (intensity > 0.7) {
-          // Glow state
           ctx.fillStyle = glowColor;
           ctx.shadowColor = glowColor;
-          ctx.shadowBlur = 10 * (intensity - 0.7) * 3;
-          ctx.globalAlpha = opacity * 1.0;
+          ctx.shadowBlur = 8 * (intensity - 0.7) * 3;
         } else {
-          // Dim state
           ctx.fillStyle = color;
           ctx.shadowBlur = 0;
-          ctx.globalAlpha = opacity * (0.3 + intensity * 0.5);
         }
-
+        ctx.globalAlpha =
+          opacity * (intensity > 0.7 ? 1 : 0.3 + intensity * 0.5);
         ctx.fill();
       });
 
       raf = requestAnimationFrame(draw);
     };
 
-    // Initialize
-    const ro = new ResizeObserver(resize);
-    ro.observe(container);
-    resize();
     raf = requestAnimationFrame(draw);
 
     return () => {
       stopped = true;
       cancelAnimationFrame(raf);
+      window.removeEventListener("resize", regenDots);
       ro.disconnect();
     };
   }, [gap, radius, color, glowColor, opacity, speedMin, speedMax, speedScale]);
@@ -123,9 +124,15 @@ export default function DottedGlowBackground({
   return (
     <div
       ref={containerRef}
-      className={`fixed inset-0 pointer-events-none z-0 ${className || ""}`}
+      className={className}
+      style={{
+        position: "fixed", // Changed to fixed for better portfolio feel
+        inset: 0,
+        zIndex: 0,
+        pointerEvents: "none",
+      }}
     >
-      <canvas ref={canvasRef} className="block w-full h-full" />
+      <canvas ref={canvasRef} style={{ display: "block" }} />
     </div>
   );
 }
