@@ -1,0 +1,118 @@
+{
+  "name": "ABDUS SATTER",
+  "title": "FRONTEND ENGINEER",
+  "version": "V.2.5.0",
+  "email": "asatter833@gmail.com",
+  "phone": "+8801767043404",
+  "github": "https://github.com/asatter833",
+  "linkedin": "https://linkedin.com/in/asatter833",
+  "website": "https://abdussatter.netlify.app/",
+  "summary": "Frontend Engineer with 2+ years experience building high-performance React & Next.js applications. Specialized in scalable architectures, UI/UX optimization, and performance engineering.",
+  "skills": {
+    "professional": [
+      "React.js",
+      "Next.js",
+      "JavaScript",
+      "TypeScript",
+      "TailwindCSS",
+      "MUI",
+      "Ant Design"
+    ],
+    "expert": [
+      "UI/UX Design",
+      "Frontend Architecture",
+      "TanStack Query",
+      "Figma",
+      "Adobe Illustrator"
+    ],
+    "intermediate": ["Jira", "React-Hook-Form", "Git", "Axios", "JOI"],
+    "learner": ["NestJS", "PostgreSQL", "Prisma", "GitHub Actions", "CI/CD"]
+  },
+  "experience": [
+    {
+      "role": "Frontend Engineer",
+      "company": "Defined Solution",
+      "period": "Nov 2023 – Present",
+      "location": "Dhaka, Bangladesh",
+      "highlights": [
+        "Architect and maintain scalable frontend systems using Next.js and TypeScript, ensuring modularity.",
+        "Serve as technical liaison, translating complex client requirements into robust specifications.",
+        "Design and implement high-fidelity, pixel-perfect interfaces using Figma and Tailwind CSS.",
+        "Lead Pull Request reviews and implement troubleshooting solutions to ensure production-ready code."
+      ]
+    },
+    {
+      "role": "Frontend Developer",
+      "company": "RayosBD (Remote)",
+      "period": "Oct 2022 – Feb 2023",
+      "location": "E-Commerce",
+      "highlights": [
+        "Built high-performance e-commerce frontend using React.js and React-Query for efficient state management.",
+        "Streamlined complex workflows and checkout processes using React-Hook-Form and JOI.",
+        "Converted high-fidelity designs from Figma and Illustrator into components using Ant Design.",
+        "Optimized client-server communication with Axios, ensuring seamless handling of large catalogs."
+      ]
+    },
+    {
+      "role": "Junior Frontend Developer",
+      "company": "PND Service (Remote)",
+      "period": "Aug 2022 – Oct 2022",
+      "location": "E-Commerce",
+      "highlights": [
+        "Assisted in designing and analyzing frontend architectures for scalable e-commerce applications.",
+        "Developed a library of reusable UI components, reducing development time and ensuring consistency.",
+        "Worked closely with senior developers to gather requirements and deliver mobile-responsive modules."
+      ]
+    },
+    {
+      "role": "Intern Frontend Developer",
+      "company": "Reserveit BD",
+      "period": "Nov 2021 – Apr 2022",
+      "location": "Dhaka, Bangladesh",
+      "highlights": [
+        "Developed responsive web components and landing pages using HTML5, CSS3, and JavaScript.",
+        "Translated Figma design prototypes into functional, cross-browser compatible code assets.",
+        "Collaborated with the engineering team to debug UI issues and optimize frontend rendering performance.",
+        "Participated in daily stand-ups and learned agile development methodologies using Git version control."
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "id": "01",
+      "name": "POS SYSTEM",
+      "desc": "Centralized hub for enterprise fashion retail. Built scalable, user-friendly interfaces with real-time sales and stock synchronization, supporting over 70% of total F-commerce and online sales.",
+      "tech": [
+        "Next.js",
+        "React",
+        "Tailwind CSS",
+        "Ant Design",
+        "MUI",
+        "TanStack Query",
+        "Axios"
+      ]
+    },
+    {
+      "id": "02",
+      "name": "REAL-ESTATE CRM",
+      "desc": "Custom application for lead lifecycle tracking, deal pipeline management, and automated follow-ups. Developed intuitive dashboards and complex workflows for sales teams.",
+      "tech": [
+        "Next.js",
+        "React",
+        "Tailwind CSS",
+        "Ant Design",
+        "MUI",
+        "TanStack Query",
+        "Axios"
+      ]
+    }
+  ],
+  "awards": [
+    {
+      "title": "Programming Contest",
+      "org": "Programming Club, Tejgaon College",
+      "date": "Feb 2020",
+      "result": "Runner-up"
+    }
+  ]
+}
