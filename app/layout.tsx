@@ -3,6 +3,7 @@ import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { Footer } from "@/components/sections/Footer";
 import { ScrollToTop } from "@/components/ui/ScrollToTopButton";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 // Configure Inter for your primary sans-serif font
 const inter = Inter({
@@ -33,6 +34,7 @@ export default function RootLayout({
         <main id="root">{children}</main>
         <ScrollToTop />
         <Footer />
+        <GoogleAnalytics gaId="G-EKGRCZEMYZ" />
       </body>
     </html>
   );
