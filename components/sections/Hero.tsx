@@ -16,19 +16,20 @@ export const Hero = ({ summary }: HeroProps) => (
         <h1 className="text-[14vw] lg:text-[10rem] font-black leading-[0.8] -tracking-[4px] uppercase">
           Frontend
         </h1>
-        <div className="w-full max-w-[800px]">
+        <div className="w-full max-w-200 mt-4">
           <svg viewBox="0 0 800 130" className="w-full h-auto overflow-visible">
             <text
               x="0"
               y="110"
-              className="font-sans font-black text-[120px] fill-none stroke-white/5 stroke-[1.5px] uppercase"
+              className="font-sans font-black text-[160px] fill-white/8 opacity-40 stroke-white/10 stroke-[1px] uppercase"
             >
               Engineer
             </text>
+
             <text
               x="0"
               y="110"
-              className="outlined-text-svg animated font-sans font-black text-[120px] fill-none stroke-hazard stroke-[1.5px] uppercase"
+              className="outlined-text-svg animated font-sans font-black text-[120px] fill-none stroke-hazard stroke-[2px] uppercase drop-shadow-[0_0_10px_rgba(250,204,21,0.3)]"
             >
               Engineer
             </text>
