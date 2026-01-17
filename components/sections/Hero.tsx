@@ -37,10 +37,10 @@ export const Hero = ({ summary }: HeroProps) => (
         </div>
       </div>
       <div className="lg:mt-20">
-        <p className="font-mono text-grey leading-relaxed text-[1rem] max-w-[500px] mb-8">
+        <p className="font-mono text-grey leading-relaxed text-[1rem] max-w-125 mb-8">
           {summary}
         </p>
-        <div className="w-[120px] h-[24px] bg-black border border-dim relative overflow-hidden">
+        <div className="w-30 h-6 bg-black border border-dim relative overflow-hidden">
           <div className="absolute inset-0 w-[60%] bg-[repeating-linear-gradient(45deg,#facc15,#facc15_8px,#000_8px,#000_16px)]" />
         </div>
       </div>
