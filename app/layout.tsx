@@ -4,6 +4,7 @@ import "./globals.css";
 import { Footer } from "@/components/sections/Footer";
 import { ScrollToTop } from "@/components/ui/ScrollToTopButton";
 import { GoogleAnalytics } from "@next/third-parties/google";
+import { SmoothScroll } from "@/components/providers/SmoothScroll";
 
 // Configure Inter for your primary sans-serif font
 const inter = Inter({
@@ -31,10 +32,12 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${jetbrains.variable}`}>
       <body className="antialiased">
-        <main id="root">{children}</main>
-        <ScrollToTop />
-        <Footer />
-        <GoogleAnalytics gaId="G-EKGRCZEMYZ" />
+        <SmoothScroll>
+          <main id="root">{children}</main>
+          <ScrollToTop />
+          <Footer />
+          <GoogleAnalytics gaId="G-EKGRCZEMYZ" />
+        </SmoothScroll>
       </body>
     </html>
   );
