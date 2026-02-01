@@ -29,7 +29,7 @@ export const Hero = ({ summary }: HeroProps) => (
             <text
               x="0"
               y="110"
-              className="outlined-text-svg animated font-sans font-black text-[120px] fill-none stroke-hazard stroke-[2px] uppercase drop-shadow-[0_0_10px_rgba(250,204,21,0.3)]"
+              className="outlined-text-svg animated font-sans font-black text-[160px] fill-none stroke-hazard stroke-[2px] uppercase drop-shadow-[0_0_10px_rgba(250,204,21,0.3)]"
             >
               Engineer
             </text>
