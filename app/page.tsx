@@ -14,6 +14,7 @@ import { SectionGrid } from "@/components/ui/SectionGrid";
 export default function Page() {
   return (
     <div className="relative min-h-screen">
+      {/* TODO: Add an AI chat agent section/component here later. */}
       <DottedGlowBackground opacity={0.15} />
       <div className="vignette fixed inset-0 pointer-events-none z-[1]" />
 
